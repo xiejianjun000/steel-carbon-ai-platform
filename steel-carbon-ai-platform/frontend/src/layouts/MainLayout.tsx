@@ -16,12 +16,14 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 import GavelIcon from '@mui/icons-material/Gavel';
+import HubIcon from '@mui/icons-material/Hub';
 import { useAuthStore } from '../store/authStore';
 
 const DRAWER_WIDTH = 240;
 
 // 侧边栏菜单配置
 const menuItems = [
+  { text: 'AI控制面板', icon: <HubIcon />, path: '/control-panel', highlight: true },
   { text: '碳排放概览', icon: <DashboardIcon />, path: '/dashboard' },
   { text: '活动数据管理', icon: <CalculateIcon />, path: '/carbon/activity-data' },
   { text: '排放因子管理', icon: <BarChartIcon />, path: '/carbon/emission-factor' },
@@ -84,7 +86,7 @@ export default function MainLayout() {
       <Divider />
       <Box sx={{ p: 2 }}>
         <Typography variant="caption" color="text.secondary">
-          冷钢碳排放AI智慧管理平台 V1.0
+          冷钢碳排放AI智慧管理平台 V2.0
         </Typography>
       </Box>
     </Box>

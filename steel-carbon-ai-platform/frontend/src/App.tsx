@@ -13,6 +13,7 @@ import ProcessMonitor from './pages/CarbonMonitor/ProcessMonitor';
 import AlertManage from './pages/CarbonMonitor/AlertManage';
 import SmartQA from './pages/KnowledgeBase/SmartQA';
 import PolicyRegulation from './pages/KnowledgeBase/PolicyRegulation';
+import ControlPanel from './pages/ControlPanel';
 import { useAuthStore } from './store/authStore';
 
 // 路由守卫：未登录跳转登录页
@@ -58,6 +59,9 @@ function App() {
             {/* 知识库 */}
             <Route path="knowledge/qa" element={<SmartQA />} />
             <Route path="knowledge/policy" element={<PolicyRegulation />} />
+
+            {/* 控制面板 - AI智能体大管家 */}
+            <Route path="control-panel" element={<ControlPanel />} />
           </Route>
         </Routes>
       </BrowserRouter>
