@@ -1,0 +1,29 @@
+{
+  "name": "steel-carbon-ai-platform",
+  "version": "1.0.0",
+  "description": "冷钢碳排放AI智慧管理平台",
+  "private": true,
+  "workspaces": [
+    "packages/shared",
+    "packages/auth-service",
+    "packages/carbon-service",
+    "packages/monitor-service",
+    "packages/knowledge-service",
+    "packages/system-service",
+    "packages/api-gateway"
+  ],
+  "scripts": {
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:gateway": "cd packages/api-gateway && npm run dev",
+    "dev:auth": "cd packages/auth-service && npm run dev",
+    "dev:carbon": "cd packages/carbon-service && npm run dev",
+    "dev:monitor": "cd packages/monitor-service && npm run dev",
+    "dev:knowledge": "cd packages/knowledge-service && npm run dev",
+    "build": "npm run build --workspaces",
+    "start": "docker compose up -d"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  }
+}
