@@ -4,7 +4,7 @@ import {
 } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import SmartToyIcon from '@mui/icons-material/SmartToy';
-import { askQuestion } from '../../services/knowledge';
+import { askQuestion } from '../../../services/knowledge';
 
 interface Message {
   role: 'user' | 'assistant';

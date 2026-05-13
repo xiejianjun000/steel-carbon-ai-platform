@@ -44,12 +44,14 @@ import {
   triggerDataSync,
 } from './api/controlPanelApi';
 
+import {
+  AGENTS,
+  PROCESS_NAMES,
+} from './types/controlPanel';
 import type {
   AgentStatus,
   ChatMessage,
   DataSyncStatus,
-  AGENTS,
-  PROCESS_NAMES,
 } from './types/controlPanel';
 
 // 生成唯一ID
@@ -78,7 +80,7 @@ export default function ControlPanel() {
   ]);
 
   // 获取当前选中智能体名称
-  const selectedAgentInfo = (AGENTS as any).find?.((a: any) => a.id === selectedAgent) || { name: '大管家' };
+  const selectedAgentInfo = AGENTS.find((a) => a.id === selectedAgent) || { name: '大管家' };
 
   // 加载智能体状态
   const loadAgentStatus = useCallback(async () => {
@@ -157,30 +159,30 @@ export default function ControlPanel() {
       if (message.includes('核算') || message.includes('计算')) {
         responseContent = '好的，我正在调度碳核算Agent为您进行碳排放核算。';
         taskProgress = [
-          { taskId: 'task_1', agentId: 1, agentName: '石灰窑', description: '石灰窑碳排放核算', status: 'done', result: { 产量_t: 258, 碳排放_tCO2: 113.5 } },
-          { taskId: 'task_2', agentId: 2, agentName: '烧结', description: '烧结碳排放核算', status: 'done', result: { 产量_t: 7931, 碳排放_tCO2: 3456.8 } },
-          { taskId: 'task_3', agentId: 3, agentName: '高炉', description: '高炉碳排放核算', status: 'done', result: { 产量_t: 4041, 碳排放_tCO2: 12456.3 } },
-          { taskId: 'task_4', agentId: 4, agentName: '转炉', description: '转炉碳排放核算', status: 'working', description: '正在计算...' },
-          { taskId: 'task_6', agentId: 6, agentName: '轧钢', description: '轧钢碳排放核算', status: 'pending', description: '等待执行' },
+          { taskId: 'task_1', agentId: 1, agentName: '石灰窑', description: '石灰窑碳排放核算', status: 'done' as const, result: { 产量_t: 258, 碳排放_tCO2: 113.5 } },
+          { taskId: 'task_2', agentId: 2, agentName: '烧结', description: '烧结碳排放核算', status: 'done' as const, result: { 产量_t: 7931, 碳排放_tCO2: 3456.8 } },
+          { taskId: 'task_3', agentId: 3, agentName: '高炉', description: '高炉碳排放核算', status: 'done' as const, result: { 产量_t: 4041, 碳排放_tCO2: 12456.3 } },
+          { taskId: 'task_4', agentId: 4, agentName: '转炉', description: '转炉碳排放核算', status: 'working' as const },
+          { taskId: 'task_6', agentId: 6, agentName: '轧钢', description: '轧钢碳排放核算', status: 'pending' as const },
         ];
       } else if (message.includes('同步') || message.includes('数据')) {
         responseContent = '正在检查各工序数据同步状态...';
         taskProgress = [
-          { taskId: 'sync_1', agentId: 9, agentName: '数据采集', description: '检查石灰窑数据', status: 'done', result: { 状态: '已同步', 自动采集率: '98.5%' } },
-          { taskId: 'sync_2', agentId: 9, agentName: '数据采集', description: '检查烧结数据', status: 'done', result: { 状态: '已同步', 自动采集率: '99.2%' } },
-          { taskId: 'sync_3', agentId: 9, agentName: '数据采集', description: '检查高炉数据', status: 'done', result: { 状态: '已同步', 自动采集率: '97.8%' } },
+          { taskId: 'sync_1', agentId: 9, agentName: '数据采集', description: '检查石灰窑数据', status: 'done' as const, result: { 状态: '已同步', 自动采集率: '98.5%' } },
+          { taskId: 'sync_2', agentId: 9, agentName: '数据采集', description: '检查烧结数据', status: 'done' as const, result: { 状态: '已同步', 自动采集率: '99.2%' } },
+          { taskId: 'sync_3', agentId: 9, agentName: '数据采集', description: '检查高炉数据', status: 'done' as const, result: { 状态: '已同步', 自动采集率: '97.8%' } },
         ];
       } else if (message.includes('异常') || message.includes('告警')) {
         responseContent = '检测到以下异常需要关注：';
         taskProgress = [
-          { taskId: 'alert_1', agentId: 8, agentName: '双碳合规', description: '转炉电力单耗异常', status: 'done', result: { 告警级别: 'warning', 偏差: '+5.2%' } },
-          { taskId: 'alert_2', agentId: 8, agentName: '双碳合规', description: '烧结焦比偏高', status: 'done', result: { 告警级别: 'info', 偏差: '+2.1%' } },
+          { taskId: 'alert_1', agentId: 8, agentName: '双碳合规', description: '转炉电力单耗异常', status: 'done' as const, result: { 告警级别: 'warning', 偏差: '+5.2%' } },
+          { taskId: 'alert_2', agentId: 8, agentName: '双碳合规', description: '烧结焦比偏高', status: 'done' as const, result: { 告警级别: 'info', 偏差: '+2.1%' } },
         ];
       } else if (message.includes('日报') || message.includes('报告')) {
         responseContent = '正在为您生成今日碳排放简报...';
         taskProgress = [
-          { taskId: 'report_1', agentId: 7, agentName: '碳核算引擎', description: '汇总各工序数据', status: 'done', result: { 总排放_tCO2: 16895.6 } },
-          { taskId: 'report_2', agentId: 12, agentName: '大管家', description: '生成报告', status: 'working', description: '正在生成...' },
+          { taskId: 'report_1', agentId: 7, agentName: '碳核算引擎', description: '汇总各工序数据', status: 'done' as const, result: { 总排放_tCO2: 16895.6 } },
+          { taskId: 'report_2', agentId: 12, agentName: '大管家', description: '生成报告', status: 'working' as const },
         ];
       } else {
         responseContent = `收到您的指令：${message}\n\n作为AI智能体大管家，我可以帮您：\n1. 核算各工序碳排放\n2. 检查数据同步状态\n3. 生成碳排放报告\n4. 分析异常告警\n5. 解答碳排放相关问题\n\n请告诉我您需要什么帮助？`;

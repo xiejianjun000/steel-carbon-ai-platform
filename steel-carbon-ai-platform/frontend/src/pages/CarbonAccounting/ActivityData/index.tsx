@@ -9,8 +9,8 @@ import UploadFileIcon from '@mui/icons-material/UploadFile';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import { getActivityData, importActivityData, calculateEmission } from '../../services/carbon';
-import { dataSourceLabel } from '../../utils/format';
+import { getActivityData, importActivityData, calculateEmission } from '../../../services/carbon';
+import { dataSourceLabel } from '../../../utils/format';
 
 /**
  * 活动数据管理页面 - 碳核算数据录入与管理
@@ -210,7 +210,7 @@ export default function ActivityData() {
           <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
             请选择Excel文件进行导入。文件需符合标准模板格式，包含参数代码、名称、数值、单位等列。
           </Typography>
-          <Button variant="contained" component="label" startIcon={<UploadFileIcon()}>
+          <Button variant="contained" component="label" startIcon={<UploadFileIcon />}>
             选择文件
             <input type="file" hidden accept=".xlsx,.xls" onChange={handleImport} />
           </Button>

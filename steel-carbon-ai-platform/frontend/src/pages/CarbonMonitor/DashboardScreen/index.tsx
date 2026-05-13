@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Box, Typography } from '@mui/material';
 import ReactECharts from 'echarts-for-react';
-import { getMonitorDashboard } from '../../services/monitor';
-import { formatNumber } from '../../utils/format';
+import { getMonitorDashboard } from '../../../services/monitor';
+import { formatNumber } from '../../../utils/format';
 
 /**
  * 碳监测大屏 - 实时碳排放数据可视化

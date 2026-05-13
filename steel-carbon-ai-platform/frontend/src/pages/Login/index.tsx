@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import {
   Box, Card, CardContent, TextField, Button, Typography, Alert,
 } from '@mui/material';
-import MonitorHeartIcon from '@mui/icons-material/MonitorHeart';
+import CloudIcon from '@mui/icons-material/Cloud';
 import { login } from '../../services/auth';
 import { useAuthStore } from '../../store/authStore';
 
@@ -41,7 +41,7 @@ export default function Login() {
       <CardContent sx={{ p: 4 }}>
         {/* Logo */}
         <Box sx={{ textAlign: 'center', mb: 3 }}>
-          <MonitorHeartIcon sx={{ fontSize: 48, color: 'primary.main' }} />
+          <CloudIcon sx={{ fontSize: 48, color: 'primary.main' }} />
           <Typography variant="h5" fontWeight="bold" sx={{ mt: 1 }}>
             冷钢碳排放AI平台
           </Typography>

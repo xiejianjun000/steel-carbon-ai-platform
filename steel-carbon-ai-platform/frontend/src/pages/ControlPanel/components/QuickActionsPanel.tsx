@@ -40,7 +40,7 @@ export default function QuickActionsPanel({ onAction, disabled, recentActions = 
       name: '数据上传',
       icon: <CloudUploadIcon />,
       description: '触发各工序数据同步',
-      color: 'info',
+      color: 'primary',
     },
     {
       id: 'compliance_check',
@@ -68,7 +68,7 @@ export default function QuickActionsPanel({ onAction, disabled, recentActions = 
       name: '同步历史',
       icon: <HistoryIcon />,
       description: '查看数据同步记录',
-      color: 'default',
+      color: 'primary',
     },
   ];
 

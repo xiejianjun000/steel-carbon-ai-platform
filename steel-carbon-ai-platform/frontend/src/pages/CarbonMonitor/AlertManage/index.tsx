@@ -4,8 +4,8 @@ import {
   TableCell, TableBody, Chip, TablePagination, Button, TextField, Dialog,
   DialogTitle, DialogContent, DialogActions, Select, MenuItem, FormControl, InputLabel,
 } from '@mui/material';
-import { getAlerts, resolveAlert } from '../../services/monitor';
-import { alertLevelColor, alertStatusLabel } from '../../utils/format';
+import { getAlerts, resolveAlert } from '../../../services/monitor';
+import { alertLevelColor, alertStatusLabel } from '../../../utils/format';
 
 /**
  * 异常预警管理页面

@@ -3,7 +3,7 @@ import {
   Box, Card, CardContent, Typography, Table, TableHead, TableRow,
   TableCell, TableBody, Chip, Tabs, Tab,
 } from '@mui/material';
-import { getEmissionFactors } from '../../services/carbon';
+import { getEmissionFactors } from '../../../services/carbon';
 
 /**
  * 排放因子管理页面

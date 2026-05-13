@@ -2,14 +2,14 @@
  * 控制面板API服务
  * 冷钢碳排放AI智慧管理平台
  */
-import api from '../services/api';
+import api from '../../../services/api';
 import type {
   AgentStatus,
   ChatMessage,
   DataSyncStatus,
   TaskDispatchRequest,
   TaskDispatchResult,
-} from './pages/ControlPanel/types/controlPanel';
+} from '../types/controlPanel';
 
 /** 获取所有智能体状态 */
 export const getAgentStatus = (): Promise<AgentStatus[]> => {

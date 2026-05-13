@@ -4,8 +4,8 @@ import {
   TableCell, TableBody, TextField, Button, Chip,
 } from '@mui/material';
 import ReactECharts from 'echarts-for-react';
-import { getEmissionSummary } from '../../services/carbon';
-import { formatNumber, emissionTypeLabel } from '../../utils/format';
+import { getEmissionSummary } from '../../../services/carbon';
+import { formatNumber, emissionTypeLabel } from '../../../utils/format';
 
 /**
  * 核算结果查询页面 - 展示碳排放计算结果
@@ -123,11 +123,11 @@ export default function EmissionResult() {
                 <TableBody>
                   {summary.groups.map((g: any) => (
                     <TableRow key={g.key} hover>
-                      <TableCell fontWeight="bold">{g.key}</TableCell>
+                      <TableCell sx={{ fontWeight: 'bold' }}>{g.key}</TableCell>
                       <TableCell align="right">{formatNumber(g.fuel)}</TableCell>
                       <TableCell align="right">{formatNumber(g.process)}</TableCell>
                       <TableCell align="right">{formatNumber(g.electricity)}</TableCell>
-                      <TableCell align="right"><Typography fontWeight="bold">{formatNumber(g.total)}</Typography></TableCell>
+                      <TableCell align="right"><Typography sx={{ fontWeight: 'bold' }}>{formatNumber(g.total)}</Typography></TableCell>
                     </TableRow>
                   ))}
                   <TableRow>

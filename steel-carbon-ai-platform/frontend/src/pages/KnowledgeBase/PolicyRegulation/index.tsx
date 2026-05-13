@@ -4,7 +4,7 @@ import {
   TableCell, TableBody, Chip, TablePagination, Tabs, Tab, Button,
 } from '@mui/material';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
-import { getDocuments, uploadDocument } from '../../services/knowledge';
+import { getDocuments, uploadDocument } from '../../../services/knowledge';
 
 const categories: Record<string, string> = {
   POLICY: '政策法规',
